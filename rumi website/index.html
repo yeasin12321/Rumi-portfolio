@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="রুমি (Rumi) — পর্দাবতী মনের কাব্যকানন, লাল গোলাপ ও পদ্মফুলের স্নিগ্ধ প্রেম। Dedicated to Rumi & Yeasin Kabir." />
+  <title>রুমি • Rumi | Personal Floral Portfolio & Poetic Sanctuary</title>
+
+  <!-- Google Fonts: Noto Serif Bengali, Hind Siliguri, Playfair Display, Alex Brush, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              200: '#fecdd3',
+              300: '#fda4af',
+              400: '#fb7185',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              800: '#9f1239',
+              900: '#881337',
+              950: '#4c0519'
+            },
+            lotus: {
+              50: '#fdf4ff',
+              100: '#fae8ff',
+              200: '#f5d0fe',
+              300: '#f0abfc',
+              400: '#e879f9',
+              500: '#d946ef',
+              600: '#c026d3',
+              700: '#a21caf',
+              800: '#86198f',
+              900: '#701a75'
+            },
+            wine: {
+              900: '#1a0b12',
+              950: '#0d070a'
+            }
+          },
+          fontFamily: {
+            poem: ['"Noto Serif Bengali"', 'serif'],
+            bangla: ['"Hind Siliguri"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            signature: ['"Alex Brush"', 'cursive'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="bg-[#0d070a] text-rose-50 selection:bg-rose-500/30 selection:text-rose-200 min-h-screen relative overflow-x-hidden font-bangla">
+
+  <!-- Falling Rose & Lotus Petals Canvas Overlay -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 max-w-sm w-full pointer-events-auto"></div>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 border-b border-rose-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="group flex items-center gap-3">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-600 via-rose-500 to-lotus-400 p-[1.5px] shadow-lg shadow-rose-900/40 group-hover:shadow-rose-600/40 transition-all duration-300">
+          <div class="w-full h-full bg-[#160910] rounded-[14px] flex items-center justify-center text-rose-400 group-hover:text-white transition-colors">
+            <i data-lucide="flower" class="w-6 h-6 animate-spin-slow"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="font-bold text-xl tracking-tight text-white group-hover:text-rose-200 transition-colors font-poem">
+              রুমি
+            </span>
+            <span class="text-xs text-rose-400/80 font-signature text-lg">Rumi</span>
+          </div>
+          <span class="text-[10px] text-rose-300/70 flex items-center gap-1 leading-none font-sans">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse"></span>
+            ইয়াছিন কবিরের অর্ধাঙ্গিনী • Love of Yeasin Kabir
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 bg-[#1a0c14]/75 border border-rose-500/20 px-5 py-2 rounded-full backdrop-blur-md shadow-inner shadow-white/5">
+        <a href="#hero" class="nav-link px-3.5 py-1.5 rounded-full text-sm font-medium text-rose-200/90 hover:text-white hover:bg-rose-500/15 transition-all">হোম</a>
+        <a href="#about" class="nav-link px-3.5 py-1.5 rounded-full text-sm font-medium text-rose-200/90 hover:text-white hover:bg-rose-500/15 transition-all">রুমির ভুবন</a>
+        <a href="#poems" class="nav-link px-3.5 py-1.5 rounded-full text-sm font-medium text-rose-200/90 hover:text-white hover:bg-rose-500/15 transition-all">সাহিত্য ও কবিতা</a>
+        <a href="#gallery" class="nav-link px-3.5 py-1.5 rounded-full text-sm font-medium text-rose-200/90 hover:text-white hover:bg-rose-500/15 transition-all">ফুলের কানন</a>
+        <a href="#letters" class="nav-link px-3.5 py-1.5 rounded-full text-sm font-medium text-rose-200/90 hover:text-white hover:bg-rose-500/15 transition-all">ডিজিটাল খাম</a>
+        <a href="#contact" class="nav-link px-3.5 py-1.5 rounded-full text-sm font-medium text-rose-200/90 hover:text-white hover:bg-rose-500/15 transition-all">গোপন চিঠি</a>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Live Google Sheet Sync Badge -->
+        <div id="sheet-sync-pill" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-sans font-medium bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 shadow-sm backdrop-blur-md" title="Google Sheet Live Backend Connected">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span id="sheet-sync-text">Google Sheet Live</span>
+        </div>
+
+        <!-- Petals Toggle Button -->
+        <button 
+          id="toggle-petals-btn"
+          class="w-10 h-10 rounded-full bg-[#1e0e17] border border-rose-500/30 text-rose-400 hover:text-white hover:border-rose-400 transition-all flex items-center justify-center cursor-pointer shadow-md"
+          title="পাপড়ির বৃষ্টি অন/অফ করুন"
+          aria-label="Toggle petals"
+        >
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Admin CMS Button -->
+        <button 
+          id="nav-admin-login-btn"
+          onclick="handleAdminButtonClick()"
+          class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-rose-200 bg-rose-950/80 hover:bg-rose-900 border border-rose-500/30 hover:border-rose-400/60 px-3.5 sm:px-4 py-2 rounded-full transition-all shadow-md cursor-pointer"
+        >
+          <i data-lucide="lock" class="w-4 h-4 text-rose-400"></i>
+          <span>এডমিন লগইন</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          id="mobile-menu-btn"
+          class="md:hidden w-10 h-10 rounded-full bg-[#1e0e17] border border-rose-500/30 text-rose-300 flex items-center justify-center cursor-pointer"
+          aria-label="Open Mobile Menu"
+        >
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#12080d]/95 border-b border-rose-500/20 backdrop-blur-xl px-4 py-5 space-y-2">
+      <div class="pb-2 border-b border-rose-500/20 flex items-center justify-between">
+        <span class="text-xs text-rose-300/70 font-sans">রুমি ও ইয়াছিন কবিরের কাব্যকানন</span>
+        <span class="text-[10px] bg-emerald-950 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded-full">Google Sheet API</span>
+      </div>
+      <a href="#hero" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-rose-100 hover:bg-rose-900/40">হোম</a>
+      <a href="#about" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-rose-100 hover:bg-rose-900/40">রুমির ভুবন</a>
+      <a href="#poems" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-rose-100 hover:bg-rose-900/40">সাহিত্য ও কবিতা</a>
+      <a href="#gallery" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-rose-100 hover:bg-rose-900/40">ফুলের কানন</a>
+      <a href="#letters" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-rose-100 hover:bg-rose-900/40">ডিজিটাল খাম</a>
+      <a href="#contact" class="mobile-link block px-4 py-2.5 rounded-xl text-base font-medium text-rose-100 hover:bg-rose-900/40">গোপন চিঠি</a>
+      <div class="pt-2 border-t border-rose-500/20">
+        <button 
+          id="mobile-admin-login-btn"
+          onclick="handleAdminButtonClick()"
+          class="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-rose-900/60 text-rose-200 border border-rose-500/30 text-sm font-medium"
+        >
+          <i data-lucide="lock" class="w-4 h-4 text-rose-400"></i>
+          <span>এডমিন প্যানেল</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="relative pt-28 sm:pt-36 pb-20 md:pb-28 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Centered Hero Container (No side image needed) -->
+      <div class="max-w-3xl mx-auto flex flex-col items-center text-center space-y-6">
+        
+        <!-- Islamic Blessing Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-950/70 border border-rose-500/30 text-rose-300 text-xs sm:text-sm font-medium shadow-inner backdrop-blur-md">
+          <span class="text-rose-400">﷽</span>
+          <span>বিসমিল্লাহির রাহমানির রাহীম</span>
+          <span class="text-rose-400">🌹</span>
+        </div>
+
+        <!-- Main Title -->
+        <div class="space-y-3">
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white font-poem leading-tight drop-shadow-md">
+            <span class="dynamic-wife-name text-rose-300">রুমি</span>-র কাব্য ও <br />
+            <span class="bg-gradient-to-r from-rose-400 via-rose-300 to-lotus-300 bg-clip-text text-transparent">
+              স্নিগ্ধ ফুলের ভুবন
+            </span>
+          </h1>
+          <p id="hero-tagline" class="text-base sm:text-lg text-rose-200/85 font-poem font-light max-w-xl mx-auto">
+            স্নিগ্ধ হৃদয়ের নিভৃত কথামালা, হিজাবের পবিত্র সুরভী ও লাল গোলাপের প্রণয়
+          </p>
+        </div>
+
+        <!-- Marriage Counter ("Together Since Oct 8, 2026") -->
+        <div class="w-full max-w-xl p-5 sm:p-6 rounded-3xl counter-box relative overflow-hidden backdrop-blur-xl border border-rose-500/30 shadow-2xl">
+          <!-- Decorative Flower Glow -->
+          <div class="absolute -right-8 -top-8 w-28 h-28 bg-rose-500/15 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="flex items-center justify-between mb-4 pb-3 border-b border-rose-500/20">
+            <div class="flex items-center gap-2 text-left">
+              <span class="text-xl">💍</span>
+              <div>
+                <h4 class="text-sm sm:text-base font-bold text-white font-poem">দাম্পত্য জীবনের শুভযাত্রা</h4>
+                <p class="text-[11px] text-rose-300/70">৮ অক্টোবর, ২০২৬ থেকে চিরন্তন বন্ধনে — ইয়াছিন কবির ও রুমি</p>
+              </div>
+            </div>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1 font-sans">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+              Together Forever
+            </span>
+          </div>
+
+          <!-- Dynamic Digits Grid -->
+          <div class="grid grid-cols-4 gap-2 sm:gap-3 text-center">
+            <div class="p-2 sm:p-3 rounded-2xl bg-black/40 border border-rose-500/20">
+              <div id="counter-days" class="text-2xl sm:text-3xl font-extrabold text-rose-300 font-poem">--</div>
+              <div class="text-[11px] text-rose-200/60 font-sans mt-0.5">দিন (Days)</div>
+            </div>
+            <div class="p-2 sm:p-3 rounded-2xl bg-black/40 border border-rose-500/20">
+              <div id="counter-hours" class="text-2xl sm:text-3xl font-extrabold text-rose-300 font-poem">--</div>
+              <div class="text-[11px] text-rose-200/60 font-sans mt-0.5">ঘণ্টা (Hours)</div>
+            </div>
+            <div class="p-2 sm:p-3 rounded-2xl bg-black/40 border border-rose-500/20">
+              <div id="counter-minutes" class="text-2xl sm:text-3xl font-extrabold text-rose-300 font-poem">--</div>
+              <div class="text-[11px] text-rose-200/60 font-sans mt-0.5">মিনিট (Mins)</div>
+            </div>
+            <div class="p-2 sm:p-3 rounded-2xl bg-black/40 border border-rose-500/20">
+              <div id="counter-seconds" class="text-2xl sm:text-3xl font-extrabold text-rose-400 font-poem animate-pulse">--</div>
+              <div class="text-[11px] text-rose-200/60 font-sans mt-0.5">সেকেন্ড (Secs)</div>
+            </div>
+          </div>
+
+          <!-- Subtitle dedication -->
+          <p class="text-[11px] text-center text-rose-300/80 mt-3 font-poem italic">
+            "হে রব! আমাদের এই ভালোবাসাকে জান্নাতুল ফিরদাউস পর্যন্ত চিরস্থায়ী করে দিন।"
+          </p>
+        </div>
+
+        <!-- Featured Stanza Card -->
+        <div class="w-full max-w-xl glass-card rounded-2xl p-4 sm:p-5 border-l-4 border-l-rose-500 relative text-left">
+          <i data-lucide="quote" class="w-6 h-6 text-rose-400/30 absolute right-4 top-4"></i>
+          <p id="featured-quote-text" class="text-sm sm:text-base font-poem text-rose-100 leading-relaxed italic">
+            "তুমি আমার দ্বীনের অর্ধেক, আর জীবনের সেই সুরভিত লাল গোলাপ যার ভালোবাসায় জান্নাতের পথ সুগম হয়।"
+          </p>
+          <p id="featured-quote-author" class="text-xs text-rose-300/80 font-medium text-right mt-2 font-poem">
+            — ইয়াছিন কবির (আমার প্রিয় অর্ধাঙ্গ)
+          </p>
+        </div>
+
+        <!-- Call to Action Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+          <a 
+            href="#poems" 
+            class="inline-flex items-center gap-2 bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-semibold px-6 py-3.5 rounded-full shadow-lg shadow-rose-900/50 hover:shadow-rose-600/40 transition-all duration-300 hover:scale-105"
+          >
+            <span>কবিতা পড়ুন</span>
+            <span class="text-base">🌹</span>
+          </a>
+
+          <a 
+            href="#gallery" 
+            class="inline-flex items-center gap-2 glass-card hover:bg-rose-950/60 text-rose-200 hover:text-white font-medium px-6 py-3.5 rounded-full border border-rose-500/30 transition-all duration-300"
+          >
+            <span>ফুলের কানন</span>
+            <span class="text-base">🪷</span>
+          </a>
+
+          <a 
+            href="#contact" 
+            class="inline-flex items-center gap-2 text-rose-300 hover:text-white px-4 py-2 text-sm font-medium transition-colors"
+          >
+            <i data-lucide="mail-heart" class="w-4 h-4 text-rose-400"></i>
+            <span>গোপন বার্তা পাঠান</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== ABOUT SECTION: RUMI'S WORLD ==================== -->
+  <section id="about" class="py-20 relative bg-black/30 border-y border-rose-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 tracking-wider uppercase bg-rose-950/60 px-3 py-1 rounded-full border border-rose-500/20">
+          <span>🌸</span> আত্মকথন ও স্নিগ্ধ বিশ্বাস
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-poem">রুমির ভুবন ও আত্মপরিচয়</h2>
+        <p class="text-rose-200/70 text-sm sm:text-base font-poem">
+          যেখানে হিজাবের মর্যাদা, সাহিত্যের পেলবতা এবং অর্ধাঙ্গের ভালোবাসায় রচিত হয় এক প্রশান্ত জীবন।
+        </p>
+      </div>
+
+      <!-- About Description Card -->
+      <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-10 mb-12 border border-rose-500/20 shadow-xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <p id="about-bio-text" class="text-base sm:text-lg font-poem text-rose-100/90 leading-relaxed text-center sm:text-left">
+          আসসালামু আলাইকুম। আমি রুমি। একজন সাধারণ পর্দানশীন মুসলিমাহ, যে লাল গোলাপের পাপড়িতে খুঁজে পায় ভালোবাসার পবিত্রতা আর পদ্মফুলের নির্জনতায় খুঁজে পায় আধ্যাত্মিক প্রশান্তি। কাব্য ও সাহিত্য আমার হৃদয়ের একান্ত অনুভূতি প্রকাশের মাধ্যম। আর আমার এই ছোট ভুবনের সবচেয়ে সুন্দর অধ্যায় আমার স্বামী ইয়াছিন কবির, যার হাত ধরে জান্নাত পর্যন্ত পথচলার অঙ্গীকার।
+        </p>
+      </div>
+
+      <!-- 4 Pillars Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Pillar 1: Hijab & Niqab -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 text-center space-y-3 border border-rose-500/20">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-2xl shadow-inner">
+            🧕
+          </div>
+          <h4 class="text-lg font-bold text-white font-poem">পর্দা ও আত্মমর্যাদা</h4>
+          <p class="text-xs sm:text-sm text-rose-200/70 font-poem leading-relaxed">
+            হিজাব ও নিকাব বন্দিদশা নয়, বরং এক রাজকীয় মুকুট যা অন্তরের নিষ্কলুষ শুভ্রতাকে আগলে রাখে।
+          </p>
+        </div>
+
+        <!-- Pillar 2: Red Roses -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 text-center space-y-3 border border-rose-500/20">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-2xl shadow-inner">
+            🌹
+          </div>
+          <h4 class="text-lg font-bold text-white font-poem">রক্তিম লাল গোলাপ</h4>
+          <p class="text-xs sm:text-sm text-rose-200/70 font-poem leading-relaxed">
+            তাজা লাল গোলাপের সুবাস মনে করিয়ে দেয় খাঁটি দ্বীনি প্রেমের পবিত্রতা ও চিরন্তন সৌরভ।
+          </p>
+        </div>
+
+        <!-- Pillar 3: Lotus Blossom -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 text-center space-y-3 border border-lotus-500/20">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-lotus-950/80 border border-lotus-500/30 flex items-center justify-center text-2xl shadow-inner">
+            🪷
+          </div>
+          <h4 class="text-lg font-bold text-white font-poem">পদ্ম দীঘির প্রশান্তি</h4>
+          <p class="text-xs sm:text-sm text-rose-200/70 font-poem leading-relaxed">
+            কোলাহলমুক্ত শান্ত জলের বুকে ফোটা পদ্মের মতো হৃদয়ে জাগ্রত রাখা একান্ত রবের সিজদার তৃপ্তি।
+          </p>
+        </div>
+
+        <!-- Pillar 4: Spiritual Marriage -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 text-center space-y-3 border border-rose-500/20">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-2xl shadow-inner">
+            💍
+          </div>
+          <h4 class="text-lg font-bold text-white font-poem">অর্ধাঙ্গ ইয়াছিন কবির</h4>
+          <p class="text-xs sm:text-sm text-rose-200/70 font-poem leading-relaxed">
+            ৮ অক্টোবর থেকে শুরু হওয়া আমাদের এই পথচলা কেবল দুনিয়ার নয়, জান্নাতুল ফিরদাউসের অভিযাত্রা।
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== POEMS & LITERATURE SECTION ==================== -->
+  <section id="poems" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 tracking-wider uppercase bg-rose-950/60 px-3 py-1 rounded-full border border-rose-500/20">
+            <span>🖋️</span> রুমির সাহিত্য কানন
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-poem flex items-center gap-2">
+            কবিতা ও সাহিত্য কথা
+            <span id="poems-count" class="text-sm font-sans font-normal text-rose-300/60"></span>
+          </h2>
+          <p class="text-rose-200/70 text-sm sm:text-base font-poem">
+            প্রেম, প্রকৃতি, হিজাবের স্নিগ্ধতা ও জীবনের নিভৃত উপলব্ধি নিয়ে রচিত কাব্যগাথা।
+          </p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="w-full md:w-80 relative">
+          <input 
+            type="text" 
+            id="poem-search-input"
+            placeholder="কবিতার শিরোনাম বা পংক্তি খুঁজুন..." 
+            class="w-full bg-[#1b0b14]/80 border border-rose-500/25 rounded-2xl pl-11 pr-4 py-2.5 text-sm text-white placeholder-rose-300/40 focus:outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-500/20 font-poem transition-all"
+          />
+          <i data-lucide="search" class="w-4 h-4 text-rose-400 absolute left-4 top-1/2 -translate-y-1/2"></i>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 scrollbar-none">
+        <button 
+          data-category="all"
+          class="poem-tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-rose-600 text-white shadow-lg shadow-rose-900/40 transition-all shrink-0 cursor-pointer"
+        >
+          সব রচনা (All)
+        </button>
+        <button 
+          data-category="prem"
+          class="poem-tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+        >
+          🌹 প্রেম ও অর্ধাঙ্গ
+        </button>
+        <button 
+          data-category="prokriti"
+          class="poem-tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+        >
+          🪷 স্নিগ্ধ প্রকৃতি
+        </button>
+        <button 
+          data-category="onukobita"
+          class="poem-tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+        >
+          ✨ অনুকবিতা
+        </button>
+        <button 
+          data-category="jibon"
+          class="poem-tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+        >
+          🕊️ জীবন ও আত্মা
+        </button>
+      </div>
+
+      <!-- Dynamic Poems Grid -->
+      <div id="poems-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Injected dynamically via main.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== FLORAL PHOTO & ART GALLERY ==================== -->
+  <section id="gallery" class="py-24 relative bg-black/40 border-y border-rose-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 tracking-wider uppercase bg-rose-950/60 px-3 py-1 rounded-full border border-rose-500/20">
+            <span>📷</span> পুষ্প কানন ও স্মৃতিমালা
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-poem flex items-center gap-2">
+            ফুলের কানন ও স্মৃতিমালা
+            <span id="gallery-count" class="text-sm font-sans font-normal text-rose-300/60"></span>
+          </h2>
+          <p class="text-rose-200/70 text-sm sm:text-base font-poem">
+            লাল গোলাপের স্নিগ্ধ পাপড়ি, প্রস্ফুটিত পদ্ম আর স্মৃতিময় মুহূর্তের নান্দনিক ফ্রেম।
+          </p>
+        </div>
+
+        <!-- Gallery Filter Tabs -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+          <button 
+            data-category="all"
+            class="gallery-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-rose-600 text-white shadow-md transition-all shrink-0 cursor-pointer"
+          >
+            সব ছবি
+          </button>
+          <button 
+            data-category="roses"
+            class="gallery-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+          >
+            লাল গোলাপ
+          </button>
+          <button 
+            data-category="lotus"
+            class="gallery-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+          >
+            পদ্ম কানন
+          </button>
+          <button 
+            data-category="memories"
+            class="gallery-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+          >
+            স্মৃতি ও অনুভূতি
+          </button>
+          <button 
+            data-category="nature"
+            class="gallery-tab-btn px-4 py-1.5 rounded-full text-xs font-semibold text-rose-300 hover:bg-rose-950/60 transition-all shrink-0 cursor-pointer"
+          >
+            প্রকৃতি
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Gallery Grid -->
+      <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Injected dynamically via main.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== OPEN-WHEN DIGITAL LETTER ENVELOPES ==================== -->
+  <section id="letters" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 tracking-wider uppercase bg-rose-950/60 px-3 py-1 rounded-full border border-rose-500/20">
+          <span>💌</span> যখন মনে পড়বে...
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white font-poem">ডিজিটাল খাম ও গোপন উপহার</h2>
+        <p class="text-rose-200/70 text-sm sm:text-base font-poem">
+          জীবনের বিশেষ বিশেষ মুহূর্তে মনের মেঘ কাটাতে কিংবা এক চিলতে দোয়ার স্পর্শ পেতে এই খামগুলো খুলুন।
+        </p>
+      </div>
+
+      <!-- Dynamic Letters Grid -->
+      <div id="letters-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Injected dynamically via main.js -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== HUSBAND'S SECRET NOTE & CONTACT BOX ==================== -->
+  <section id="contact" class="py-24 relative bg-black/40 border-t border-rose-500/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Message Note Details -->
+        <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 text-xs font-semibold text-rose-400 tracking-wider uppercase bg-rose-950/60 px-3 py-1 rounded-full border border-rose-500/20">
+            <span>📮</span> গোপন বার্তা প্রেরক
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white font-poem leading-tight">
+            ইয়াছিন কবিরের গোপন চিঠি ও <br />
+            <span class="text-rose-300">ভালোবাসার বার্তা বক্স</span>
+          </h2>
+          <p class="text-rose-200/80 text-sm sm:text-base font-poem leading-relaxed">
+            একটি বিশেষ অনুভূতি, মিষ্টি আবদার কিংবা হৃদয়ছোঁয়া দোয়া—যে কোনো বার্তা সরাসরি লিখে পাঠিয়ে দিন রুমির ব্যক্তিগত ডিজিটাল ডাকবাক্সে। সমস্ত চিঠি লাইভ গুগল শিটে (Google Sheets) সংরক্ষিত থাকে।
+          </p>
+
+          <div class="glass-card rounded-2xl p-5 border border-rose-500/20 space-y-3 text-left">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-rose-950/80 border border-rose-500/30 flex items-center justify-center text-rose-400">
+                <i data-lucide="shield-heart" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-white font-poem">নিরাপদ ও ব্যক্তিগত বার্তা</h5>
+                <p class="text-xs text-rose-300/60">শুধুমাত্র রুমি ও ইয়াছিন কবির এডমিন প্যানেল থেকে দেখতে পাবেন।</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Note Form -->
+        <div class="lg:col-span-7">
+          <div class="glass-card rounded-3xl p-6 sm:p-10 border border-rose-500/25 shadow-2xl relative">
+            
+            <form id="secret-note-form" class="space-y-5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Sender Name -->
+                <div>
+                  <label class="block text-xs font-semibold text-rose-300 mb-1.5 font-sans">প্রেরকের নাম (Sender)</label>
+                  <input 
+                    type="text" 
+                    id="note-sender" 
+                    value="তোমার ইয়াছিন কবির (Husband)" 
+                    class="w-full cms-input text-sm"
+                    required
+                  />
+                </div>
+
+                <!-- Note Category / Mood -->
+                <div>
+                  <label class="block text-xs font-semibold text-rose-300 mb-1.5 font-sans">অনুভূতির ধরন (Mood)</label>
+                  <select id="note-category" class="w-full cms-input text-sm">
+                    <option value="ভালোবাসা ও শুকরিয়া">🌹 ভালোবাসা ও শুকরিয়া</option>
+                    <option value="মিষ্টি আবদার">💌 মিষ্টি আবদার</option>
+                    <option value="প্রশংসাপত্র">🌸 প্রশংসাপত্র</option>
+                    <option value="আন্তরিক দোয়া">🤲 আন্তরিক দোয়া</option>
+                    <option value="বিশেষ চিরকুট">✨ বিশেষ চিরকুট</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Subject -->
+              <div>
+                <label class="block text-xs font-semibold text-rose-300 mb-1.5 font-sans">চিঠির শিরোনাম (Subject)</label>
+                <input 
+                  type="text" 
+                  id="note-subject" 
+                  placeholder="যেমন: আজকের দিনটি তোমার জন্য..." 
+                  class="w-full cms-input text-sm"
+                  required
+                />
+              </div>
+
+              <!-- Message -->
+              <div>
+                <label class="block text-xs font-semibold text-rose-300 mb-1.5 font-sans">মনের গোপন বার্তা (Secret Message)</label>
+                <textarea 
+                  id="note-message" 
+                  rows="4" 
+                  placeholder="এখানে আপনার মনের অনুভূতি, দোয়া বা মিষ্টি কথাটি লিখুন..." 
+                  class="w-full cms-input text-sm resize-none font-poem"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button 
+                type="submit" 
+                id="note-submit-btn"
+                class="w-full bg-gradient-to-r from-rose-600 via-rose-500 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold py-3.5 px-6 rounded-2xl shadow-xl shadow-rose-950/60 transition-all duration-300 hover:scale-[1.02] flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>ভালোবাসা পাঠান</span>
+                <span class="text-lg">💌</span>
+              </button>
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-12 border-t border-rose-500/15 relative bg-[#090507]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+      
+      <div class="flex items-center justify-center gap-3">
+        <span class="text-2xl">🌹</span>
+        <span class="text-xl font-bold font-poem text-white">রুমি ও ইয়াছিন কবির</span>
+        <span class="text-2xl">🪷</span>
+      </div>
+
+      <p class="text-xs sm:text-sm text-rose-300/70 font-poem max-w-lg mx-auto">
+        "এক সাথে পথচলা, এক সাথে রবের সিজদায় অবনত হওয়া — ৮ অক্টোবর, ২০২৬ থেকে আমাদের চিরন্তন প্রেমের শুরু।"
+      </p>
+
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-rose-300/60 font-sans">
+        <a href="#hero" class="hover:text-rose-200 transition-colors">হোমপেজ</a>
+        <span>•</span>
+        <a href="#poems" class="hover:text-rose-200 transition-colors">কবিতা কানন</a>
+        <span>•</span>
+        <a href="#gallery" class="hover:text-rose-200 transition-colors">ফুলের ছবি</a>
+        <span>•</span>
+        <button onclick="handleAdminButtonClick()" class="text-rose-400 hover:text-white transition-colors underline cursor-pointer">
+          এডমিন ড্যাশবোর্ড (CMS)
+        </button>
+      </div>
+
+      <div class="text-[11px] text-rose-400/40 font-sans pt-4 border-t border-rose-500/10">
+        © ২০২৬ রুমি ও ইয়াছিন কবির | Connected with Google Sheets Cloud Backend.
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- 1. FULL POEM READING MODAL -->
+  <div 
+    id="poem-reader-modal" 
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/80 modal-backdrop-blur"
+  >
+    <div 
+      id="reader-card-box" 
+      class="relative w-full max-w-2xl reader-theme-rose rounded-3xl p-6 sm:p-10 border shadow-2xl overflow-hidden max-h-[90vh] flex flex-col transition-all duration-300"
+    >
+      <!-- Top Action Controls -->
+      <div class="flex items-center justify-between pb-4 border-b border-rose-500/20 mb-6 shrink-0">
+        <div class="flex items-center gap-2">
+          <!-- Reader Themes -->
+          <button onclick="setReaderTheme('rose')" class="w-6 h-6 rounded-full bg-[#2a111a] border border-rose-400" title="গোলাপী আভা"></button>
+          <button onclick="setReaderTheme('parchment')" class="w-6 h-6 rounded-full bg-[#fefce8] border border-amber-300" title="উষ্ণ পাণ্ডুলিপি"></button>
+          <button onclick="setReaderTheme('dark')" class="w-6 h-6 rounded-full bg-[#0d070a] border border-zinc-700" title="রাতের নিস্তব্ধতা"></button>
+          <button onclick="setReaderTheme('ivory')" class="w-6 h-6 rounded-full bg-[#fffcf8] border border-zinc-300" title="শুভ্র আইভরি"></button>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Font Size Adjust -->
+          <button onclick="changeReaderFontSize(-1)" class="w-8 h-8 rounded-lg bg-black/20 hover:bg-black/40 flex items-center justify-center text-xs font-bold font-sans cursor-pointer" title="ফন্ট ছোট করুন">
+            A-
+          </button>
+          <button onclick="changeReaderFontSize(1)" class="w-8 h-8 rounded-lg bg-black/20 hover:bg-black/40 flex items-center justify-center text-xs font-bold font-sans cursor-pointer" title="ফন্ট বড় করুন">
+            A+
+          </button>
+          <button onclick="copyActivePoem()" class="w-8 h-8 rounded-lg bg-black/20 hover:bg-black/40 flex items-center justify-center cursor-pointer" title="কবিতা কপি করুন">
+            <i data-lucide="copy" class="w-4 h-4"></i>
+          </button>
+          <button onclick="closePoemReaderModal()" class="w-8 h-8 rounded-full bg-rose-900/60 hover:bg-rose-800 flex items-center justify-center cursor-pointer ml-1" title="বন্ধ করুন">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Poem Content Area -->
+      <div class="overflow-y-auto pr-2 space-y-4">
+        <div class="text-center space-y-2">
+          <span id="reader-poem-category" class="text-xs px-3 py-1 rounded-full bg-rose-900/50 text-rose-300 border border-rose-500/20 inline-block font-sans">
+            কাব্যকথা
+          </span>
+          <h2 id="reader-poem-title" class="text-2xl sm:text-3xl font-bold font-poem leading-tight"></h2>
+          <p class="text-xs opacity-60 font-poem">রচয়িতা: রুমি • তারিখ: <span id="reader-poem-date"></span></p>
+        </div>
+
+        <div class="py-6 text-center">
+          <p id="reader-poem-body" class="font-poem whitespace-pre-line leading-loose select-text"></p>
+        </div>
+
+        <div class="text-center pt-6 border-t border-rose-500/20">
+          <span class="text-xl">🌹 🪷 🌹</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 2. GALLERY LIGHTBOX MODAL -->
+  <div 
+    id="gallery-lightbox" 
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-8 bg-black/95 modal-backdrop-blur"
+  >
+    <!-- Close Button -->
+    <button 
+      onclick="closeLightbox()" 
+      class="absolute top-6 right-6 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-rose-900 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer"
+    >
+      <i data-lucide="x" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Prev Button -->
+    <button 
+      onclick="stepLightbox(-1)" 
+      class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-rose-900 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer"
+    >
+      <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Next Button -->
+    <button 
+      onclick="stepLightbox(1)" 
+      class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-rose-900 text-white flex items-center justify-center border border-white/20 transition-all cursor-pointer"
+    >
+      <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Lightbox Main Frame -->
+    <div class="relative max-w-4xl max-h-[85vh] flex flex-col items-center">
+      <div class="rounded-2xl overflow-hidden border border-rose-500/30 shadow-2xl max-h-[70vh]">
+        <img id="lightbox-image" src="" alt="" class="max-h-[70vh] w-auto object-contain" />
+      </div>
+      <div class="mt-4 text-center space-y-1">
+        <span id="lightbox-category" class="text-xs px-2.5 py-0.5 rounded-full bg-rose-950/80 text-rose-300 border border-rose-500/30"></span>
+        <p id="lightbox-caption" class="text-sm sm:text-base font-poem text-rose-100 max-w-xl"></p>
+        <span id="lightbox-counter" class="text-xs text-rose-300/50 block font-sans"></span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 3. OPEN-WHEN LETTER MODAL -->
+  <div 
+    id="letter-modal" 
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-black/85 modal-backdrop-blur"
+  >
+    <div class="relative w-full max-w-lg bg-[#240e18] border border-rose-400/40 rounded-3xl p-6 sm:p-9 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <!-- Wax Seal Top Emblem -->
+      <div class="wax-seal mb-4">
+        <span class="text-lg">🌹</span>
+      </div>
+
+      <div class="flex justify-between items-center pb-3 border-b border-rose-500/20 mt-4">
+        <span id="letter-modal-trigger" class="text-xs text-rose-300 font-medium"></span>
+        <button onclick="closeLetterModal()" class="w-8 h-8 rounded-full bg-rose-950/80 hover:bg-rose-900 flex items-center justify-center text-white cursor-pointer">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+      <div class="overflow-y-auto py-5 space-y-4">
+        <h3 id="letter-modal-title" class="text-xl sm:text-2xl font-bold font-poem text-white text-center"></h3>
+        <div class="bg-black/30 p-5 rounded-2xl border border-rose-500/15">
+          <p id="letter-modal-body" class="font-poem text-sm sm:text-base text-rose-100/90 whitespace-pre-line leading-relaxed select-text"></p>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-rose-500/20 text-center">
+        <button onclick="closeLetterModal()" class="px-6 py-2 rounded-full bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold">
+          খামটি বন্ধ করুন
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 4. ADMIN LOGIN MODAL -->
+  <div 
+    id="admin-login-modal" 
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/85 modal-backdrop-blur"
+  >
+    <div class="relative w-full max-w-md glass-card rounded-3xl p-6 sm:p-8 border border-rose-500/30 shadow-2xl text-center space-y-6">
+      <button onclick="closeAdminLoginModal()" class="absolute top-4 right-4 text-rose-300 hover:text-white cursor-pointer">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-16 h-16 rounded-2xl bg-rose-950/80 border border-rose-500/30 mx-auto flex items-center justify-center text-rose-400 shadow-inner">
+        <i data-lucide="lock" class="w-8 h-8"></i>
+      </div>
+
+      <div class="space-y-1">
+        <h3 class="text-2xl font-bold text-white font-poem">এডমিন প্যানেল প্রবেশাধিকার</h3>
+        <p class="text-xs text-rose-200/70">কবিতা, গ্যালারি ও হোমপেজের তথ্য পরিচালনার জন্য পাসওয়ার্ড প্রদান করুন।</p>
+      </div>
+
+      <div class="space-y-4">
+        <div class="relative">
+          <input 
+            type="password" 
+            id="admin-password-input" 
+            placeholder="পাসওয়ার্ড লিখুন..." 
+            onkeydown="if(event.key === 'Enter') submitAdminLogin()"
+            class="w-full cms-input text-center text-lg tracking-widest"
+          />
+        </div>
+
+        <button 
+          onclick="submitAdminLogin()" 
+          class="w-full bg-gradient-to-r from-rose-600 to-rose-700 hover:from-rose-500 hover:to-rose-600 text-white font-bold py-3 rounded-xl shadow-lg transition-all cursor-pointer"
+        >
+          লগইন করুন
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 5. ADMIN DASHBOARD & CMS MODAL -->
+  <div 
+    id="admin-dashboard-modal" 
+    class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-6 bg-black/90 modal-backdrop-blur overflow-y-auto"
+  >
+    <div class="relative w-full max-w-5xl bg-[#14080e] border border-rose-500/30 rounded-3xl shadow-2xl flex flex-col my-auto max-h-[92vh] overflow-hidden">
+      
+      <!-- CMS Modal Header -->
+      <div class="px-6 py-4 border-b border-rose-500/20 flex items-center justify-between bg-black/40 shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-rose-600 flex items-center justify-center text-white">
+            <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-white font-poem">রুমির সাহিত্য ও ওয়েবসাইট সিএমএস</h4>
+            <div class="flex items-center gap-3">
+              <span class="text-xs text-emerald-400 flex items-center gap-1 font-sans">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> এডমিন সক্রিয়
+              </span>
+              <span class="text-[11px] text-rose-300/70 flex items-center gap-1 font-sans">
+                <i data-lucide="database" class="w-3 h-3 text-emerald-400"></i> Google Sheet Connected
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <!-- Manual Google Sheet Sync Button -->
+          <button 
+            onclick="triggerGoogleSheetSync()" 
+            id="cms-sync-btn"
+            class="text-xs text-emerald-300 hover:text-white px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-500/30 flex items-center gap-1.5 cursor-pointer transition-all"
+            title="গুগল শিট থেকে লাইভ রিফ্রেশ করুন"
+          >
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            <span>শিট সিঙ্ক</span>
+          </button>
+
+          <button onclick="adminLogout()" class="text-xs text-rose-300 hover:text-white px-3 py-1.5 rounded-lg bg-rose-950/60 border border-rose-500/20 cursor-pointer">
+            লগআউট
+          </button>
+          <button onclick="closeAdminDashboardModal()" class="w-8 h-8 rounded-full bg-rose-950/60 hover:bg-rose-900 flex items-center justify-center text-white cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- CMS Navigation Tabs -->
+      <div class="flex items-center gap-1.5 px-6 py-3 border-b border-rose-500/10 bg-[#190a12] overflow-x-auto scrollbar-none shrink-0">
+        <button onclick="switchAdminTab('overview')" data-tab="overview" class="admin-tab-btn active px-4 py-1.5 rounded-xl text-xs font-semibold border border-transparent transition-all shrink-0 cursor-pointer">
+          ওভারভিউ
+        </button>
+        <button onclick="switchAdminTab('poems')" data-tab="poems" class="admin-tab-btn px-4 py-1.5 rounded-xl text-xs font-semibold border border-transparent transition-all shrink-0 cursor-pointer">
+          কবিতা ব্যবস্থাপনা
+        </button>
+        <button onclick="switchAdminTab('gallery')" data-tab="gallery" class="admin-tab-btn px-4 py-1.5 rounded-xl text-xs font-semibold border border-transparent transition-all shrink-0 cursor-pointer">
+          গ্যালারি ব্যবস্থাপনা
+        </button>
+        <button onclick="switchAdminTab('hero')" data-tab="hero" class="admin-tab-btn px-4 py-1.5 rounded-xl text-xs font-semibold border border-transparent transition-all shrink-0 cursor-pointer">
+          হোমপেজ ও উক্তি আপডেট
+        </button>
+        <button onclick="switchAdminTab('notes')" data-tab="notes" class="admin-tab-btn px-4 py-1.5 rounded-xl text-xs font-semibold border border-transparent transition-all shrink-0 cursor-pointer">
+          প্রাপ্ত গোপন বার্তা
+        </button>
+        <button onclick="switchAdminTab('backup')" data-tab="backup" class="admin-tab-btn px-4 py-1.5 rounded-xl text-xs font-semibold border border-transparent transition-all shrink-0 cursor-pointer">
+          ব্যাকআপ ও রিসেট
+        </button>
+      </div>
+
+      <!-- CMS Tab Contents Area -->
+      <div class="p-6 overflow-y-auto space-y-6">
+
+        <!-- TAB 1: OVERVIEW -->
+        <div id="admin-tab-overview" class="admin-tab-pane space-y-6">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="p-4 rounded-2xl bg-rose-950/40 border border-rose-500/20 text-center">
+              <span class="text-2xl font-bold text-rose-300 font-poem" id="cms-stat-poems">--</span>
+              <p class="text-xs text-rose-200/60 mt-1 font-poem">মোট কবিতা</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-rose-950/40 border border-rose-500/20 text-center">
+              <span class="text-2xl font-bold text-lotus-300 font-poem" id="cms-stat-gallery">--</span>
+              <p class="text-xs text-rose-200/60 mt-1 font-poem">গ্যালারি আলোকচিত্র</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-rose-950/40 border border-rose-500/20 text-center">
+              <span class="text-2xl font-bold text-amber-300 font-poem" id="cms-stat-notes">--</span>
+              <p class="text-xs text-rose-200/60 mt-1 font-poem">প্রাপ্ত গোপন চিরকুট</p>
+            </div>
+            <div class="p-4 rounded-2xl bg-rose-950/40 border border-rose-500/20 text-center">
+              <span class="text-2xl font-bold text-emerald-300 font-poem" id="cms-stat-days">--</span>
+              <p class="text-xs text-rose-200/60 mt-1 font-poem">দাম্পত্যের অতিক্রান্ত দিন</p>
+            </div>
+          </div>
+
+          <!-- Google Sheet Live API Status Card -->
+          <div class="p-5 rounded-2xl bg-emerald-950/25 border border-emerald-500/30 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-900/60 border border-emerald-400/40 flex items-center justify-center text-emerald-300">
+                <i data-lucide="cloud-check" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h5 class="text-sm font-bold text-white font-sans flex items-center gap-2">
+                  <span>Google Sheets Live Backend API</span>
+                  <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded-full border border-emerald-500/30">Active</span>
+                </h5>
+                <p class="text-xs text-emerald-200/70 font-sans mt-0.5" id="cms-last-sync-time">
+                  লাইভ ডাটাবেজ সংযুক্ত। নতুন যেকোনো কবিতা ও ছবি যুক্ত করলে তা সরাসরি গুগল শিটে সংরক্ষিত হয়।
+                </p>
+              </div>
+            </div>
+            <button 
+              onclick="triggerGoogleSheetSync()" 
+              class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow-md transition-all cursor-pointer shrink-0"
+            >
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              <span>এখনই সিঙ্ক করুন</span>
+            </button>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-black/40 border border-rose-500/20 space-y-2">
+            <h5 class="text-sm font-bold text-white font-poem">দ্রুত নির্দেশনা:</h5>
+            <p class="text-xs text-rose-200/80 font-poem leading-relaxed">
+              আপনার সমস্ত নতুন কবিতা, ছবি এবং প্রাপ্ত বার্তা Google Sheet এ সরাসরি সংরক্ষিত হয় এবং ব্রাউজারের লোকাল ক্যাশে সিঙ্ক থাকে। ফলে ইন্টারনেট থাকুক বা না থাকুক—ওয়েবসাইট সর্বদা নিরবচ্ছিন্নভাবে চলবে।
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB 2: MANAGE POEMS -->
+        <div id="admin-tab-poems" class="admin-tab-pane hidden space-y-6">
+          <form id="cms-poem-form" class="p-5 rounded-2xl bg-black/40 border border-rose-500/20 space-y-4">
+            <h5 class="text-sm font-bold text-white font-poem flex items-center justify-between">
+              <span>নতুন কবিতা যোগ বা সম্পাদনা (গুগল শিটে সেভ হবে)</span>
+              <button type="button" id="cms-poem-cancel-btn" onclick="cancelPoemEdit()" class="hidden text-xs text-amber-400 hover:underline">
+                বাতিল করুন
+              </button>
+            </h5>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">কবিতার শিরোনাম</label>
+                <input type="text" id="cms-poem-title" class="w-full cms-input text-xs" required />
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">ক্যাটাগরি</label>
+                <select id="cms-poem-category" class="w-full cms-input text-xs">
+                  <option value="prem">প্রেম ও অর্ধাঙ্গ</option>
+                  <option value="prokriti">স্নিগ্ধ প্রকৃতি</option>
+                  <option value="onukobita">অনুকবিতা</option>
+                  <option value="jibon">জীবন ও আত্মা</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">পড়ার আনুমানিক সময়</label>
+                <input type="text" id="cms-poem-readtime" value="২ মিনিট" class="w-full cms-input text-xs" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-rose-300 mb-1">তারিখ</label>
+              <input type="date" id="cms-poem-date" class="w-full cms-input text-xs" />
+            </div>
+
+            <div>
+              <label class="block text-xs text-rose-300 mb-1">সম্পূর্ণ কবিতার স্তবক ও পংক্তি</label>
+              <textarea id="cms-poem-content" rows="6" class="w-full cms-input text-xs font-poem leading-relaxed" required></textarea>
+            </div>
+
+            <button type="submit" id="cms-poem-submit-btn" class="px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold flex items-center gap-2 cursor-pointer">
+              <span>কবিতা যোগ করুন</span>
+              <i data-lucide="cloud-upload" class="w-4 h-4"></i>
+            </button>
+          </form>
+
+          <div class="space-y-3">
+            <h5 class="text-sm font-bold text-white font-poem">বিদ্যমান কবিতাসমূহ:</h5>
+            <div id="cms-poems-list" class="space-y-2"></div>
+          </div>
+        </div>
+
+        <!-- TAB 3: MANAGE GALLERY -->
+        <div id="admin-tab-gallery" class="admin-tab-pane hidden space-y-6">
+          <form id="cms-gallery-form" class="p-5 rounded-2xl bg-black/40 border border-rose-500/20 space-y-4">
+            <h5 class="text-sm font-bold text-white font-poem">নতুন আলোকচিত্র যোগ করুন (গুগল শিটে সেভ হবে)</h5>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">ছবির URL (Direct / Google Drive Link)</label>
+                <input type="text" id="cms-gal-url"
+                  placeholder="Google Drive Share Link or Direct Image URL..."
+                  oninput="previewDriveLinkConversion(this.value)"
+                  class="w-full cms-input text-xs" required />
+                <div class="flex items-center gap-1.5 mt-1">
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-emerald-300 flex items-center gap-1">
+                    <i data-lucide="zap" class="w-3 h-3"></i>
+                    Google Drive links auto-converted to Direct Image
+                  </span>
+                </div>
+                <div id="gal-url-preview" class="hidden mt-1.5 text-[11px] text-emerald-300/80 font-sans break-all"></div>
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">ক্যাটাগরি</label>
+                <select id="cms-gal-category" class="w-full cms-input text-xs">
+                  <option value="roses">লাল গোলাপ (Roses)</option>
+                  <option value="lotus">পদ্ম কানন (Lotus)</option>
+                  <option value="memories">স্মৃতি ও অনুভূতি (Memories)</option>
+                  <option value="nature">স্নিগ্ধ প্রকৃতি (Nature)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Preset Quick-Select Buttons -->
+            <div class="space-y-1.5">
+              <span class="text-[11px] text-rose-300/70">নমুনা ফুলের ছবি দ্রুত নির্বাচন করুন:</span>
+              <div class="flex flex-wrap gap-2">
+                <button type="button" onclick="selectPresetGalleryImage('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80')" class="px-2.5 py-1 rounded bg-rose-950/80 text-[11px] text-rose-300 border border-rose-500/30">
+                  🌹 শিশিরস্নাত লাল গোলাপ
+                </button>
+                <button type="button" onclick="selectPresetGalleryImage('https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=80')" class="px-2.5 py-1 rounded bg-lotus-950/80 text-[11px] text-lotus-300 border border-lotus-500/30">
+                  🪷 প্রস্ফুটিত পদ্ম
+                </button>
+                <button type="button" onclick="selectPresetGalleryImage('https://images.unsplash.com/photo-1548094878-84ced0f6896d?auto=format&fit=crop&w=1200&q=80')" class="px-2.5 py-1 rounded bg-rose-950/80 text-[11px] text-rose-300 border border-rose-500/30">
+                  💐 ভেলভেট গোলাপের তোড়া
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">ক্যাপশন / স্মৃতিবার্তা</label>
+                <input type="text" id="cms-gal-caption" placeholder="যেমন: ভোরের শিশিরভেজা লাল গোলাপ..." class="w-full cms-input text-xs" required />
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">তারিখ</label>
+                <input type="date" id="cms-gal-date" class="w-full cms-input text-xs" />
+              </div>
+            </div>
+
+            <button type="submit" id="cms-gal-submit-btn" class="px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold flex items-center gap-2 cursor-pointer">
+              <span>গ্যালারিতে যুক্ত করুন</span>
+              <i data-lucide="cloud-upload" class="w-4 h-4"></i>
+            </button>
+          </form>
+
+          <div class="space-y-3">
+            <h5 class="text-sm font-bold text-white font-poem">বিদ্যমান গ্যালারি ছবি:</h5>
+            <div id="cms-gallery-list" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+          </div>
+        </div>
+
+        <!-- TAB 4: HERO & META CMS -->
+        <div id="admin-tab-hero" class="admin-tab-pane hidden space-y-6">
+          <form id="cms-meta-form" class="p-5 rounded-2xl bg-black/40 border border-rose-500/20 space-y-4">
+            <h5 class="text-sm font-bold text-white font-poem">হোমপেজ ও উক্তি আপডেট</h5>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">স্ত্রীর নাম (Wife Name)</label>
+                <input type="text" id="cms-meta-wife" class="w-full cms-input text-xs" required />
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">স্বামীর নাম (Husband Name)</label>
+                <input type="text" id="cms-meta-husband" class="w-full cms-input text-xs" required />
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">বিবাহের তারিখ (Marriage Date)</label>
+                <input type="date" id="cms-meta-marriage-date" class="w-full cms-input text-xs" required />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-rose-300 mb-1">ট্যাগলাইন (Tagline)</label>
+              <input type="text" id="cms-meta-tagline" class="w-full cms-input text-xs" />
+            </div>
+
+            <div>
+              <label class="block text-xs text-rose-300 mb-1">হোম হিরো পরিচিতি (Hero Bio)</label>
+              <textarea id="cms-meta-bio" rows="2" class="w-full cms-input text-xs font-poem"></textarea>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">ফিচার্ড প্রেমের উক্তি (Featured Love Quote)</label>
+                <input type="text" id="cms-meta-quote" class="w-full cms-input text-xs font-poem" />
+              </div>
+              <div>
+                <label class="block text-xs text-rose-300 mb-1">উক্তির লেখক / উৎস</label>
+                <input type="text" id="cms-meta-quote-author" class="w-full cms-input text-xs font-poem" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-rose-300 mb-1">রুমির আত্মকথা টেক্সট (About Section Text)</label>
+              <textarea id="cms-meta-about" rows="3" class="w-full cms-input text-xs font-poem"></textarea>
+            </div>
+
+            <button type="submit" class="px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold cursor-pointer">
+              তথ্য সংরক্ষণ করুন
+            </button>
+          </form>
+        </div>
+
+        <!-- TAB 5: SECRET NOTES INBOX -->
+        <div id="admin-tab-notes" class="admin-tab-pane hidden space-y-4">
+          <div class="flex items-center justify-between">
+            <h5 class="text-sm font-bold text-white font-poem">প্রাপ্ত সমস্ত গোপন চিঠি ও চিরকুট (Google Sheet Live)</h5>
+          </div>
+          <div id="cms-notes-list" class="space-y-3"></div>
+        </div>
+
+        <!-- TAB 6: BACKUP & RESET -->
+        <div id="admin-tab-backup" class="admin-tab-pane hidden space-y-6">
+          <div class="p-5 rounded-2xl bg-black/40 border border-rose-500/20 space-y-4">
+            <h5 class="text-sm font-bold text-white font-poem">ডাটা সংরক্ষণ ও ব্যাকআপ</h5>
+            <p class="text-xs text-rose-200/80 leading-relaxed font-poem">
+              রুমির সমস্ত রচিত কবিতা, ফুলের গ্যালারির ছবি এবং প্রাপ্ত চিঠিসমূহ একটি একক JSON ফাইলে ডাউনলোড করে রাখতে পারেন অথবা পূর্বে সংরক্ষিত ব্যাকআপ রিস্টোর করতে পারেন।
+            </p>
+
+            <div class="flex flex-wrap gap-3">
+              <button onclick="exportCmsBackup()" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+                <i data-lucide="download" class="w-4 h-4"></i> ব্যাকআপ ডাউনলোড (Export)
+              </button>
+
+              <label class="px-5 py-2.5 rounded-xl bg-lotus-600 hover:bg-lotus-700 text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+                <i data-lucide="upload" class="w-4 h-4"></i> ব্যাকআপ রিস্টোর (Import)
+                <input type="file" accept=".json" onchange="importCmsBackup(event)" class="hidden" />
+              </label>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-red-950/30 border border-red-500/20 space-y-3">
+            <h5 class="text-sm font-bold text-red-200 font-poem">বিপজ্জনক জোন (Reset to Defaults)</h5>
+            <p class="text-xs text-red-200/70 font-poem">
+              আপনি যদি ওয়েবসাইটটিকে একদম প্রাথমিক নমুনা কবিতাসমূহ ও ফুলে রিসেট করতে চান তবে নিচের বাটনে ক্লিক করুন।
+            </p>
+            <button onclick="triggerResetDefaults()" class="px-5 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold cursor-pointer">
+              প্রাথমিক অবস্থায় রিসেট করুন
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Floating Back to Top Button -->
+  <button 
+    id="back-to-top" 
+    aria-label="Back to top"
+    class="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-rose-950/80 border border-rose-500/40 text-rose-300 hover:text-white hover:border-rose-300 shadow-xl flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:scale-110 cursor-pointer backdrop-blur-md"
+  >
+    <i data-lucide="chevron-up" class="w-5 h-5"></i>
+  </button>
+
+
+  <!-- Scripts -->
+  <script src="js/projects.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
