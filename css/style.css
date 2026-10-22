@@ -1,0 +1,310 @@
+/* 
+ * Rumi's Floral Portfolio & CMS - Ultra-Aesthetic Romantic Glassmorphism
+ * Theme: Modest Islamic Mind, Niqabi Elegance, Red Roses & Lotus Blossoms
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Hind+Siliguri:wght@300;400;500;600;700&family=Noto+Serif+Bengali:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --color-rose-50: #fff1f2;
+  --color-rose-100: #ffe4e6;
+  --color-rose-200: #fecdd3;
+  --color-rose-300: #fda4af;
+  --color-rose-400: #fb7185;
+  --color-rose-500: #f43f5e;
+  --color-rose-600: #e11d48;
+  --color-rose-700: #be123c;
+  --color-rose-900: #4c0519;
+
+  --color-lotus-50: #fdf4ff;
+  --color-lotus-100: #fae8ff;
+  --color-lotus-200: #f5d0fe;
+  --color-lotus-500: #d946ef;
+  
+  --color-ivory: #fffdfa;
+  --color-sage: #10b981;
+
+  --font-bangla-serif: 'Noto Serif Bengali', serif;
+  --font-bangla-sans: 'Hind Siliguri', sans-serif;
+  --font-english-serif: 'Playfair Display', serif;
+  --font-signature: 'Alex Brush', cursive;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-bangla-sans), var(--font-sans), sans-serif;
+  background-color: #0b0709;
+  color: #fff1f2;
+}
+
+body {
+  overflow-x: hidden;
+  background: radial-gradient(circle at 15% 20%, rgba(225, 29, 72, 0.12) 0%, transparent 45%),
+              radial-gradient(circle at 85% 60%, rgba(217, 70, 239, 0.08) 0%, transparent 45%),
+              radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
+              #0d070a;
+  min-height: 100vh;
+}
+
+/* Poetic Bangla Typography */
+.font-poem {
+  font-family: var(--font-bangla-serif), serif;
+  line-height: 2.1;
+}
+
+.font-serif-en {
+  font-family: var(--font-english-serif), serif;
+}
+
+.font-signature {
+  font-family: var(--font-signature), cursive;
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+  background: rgba(26, 15, 20, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(253, 164, 175, 0.15);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(244, 63, 94, 0.4);
+  box-shadow: 0 20px 40px -12px rgba(225, 29, 72, 0.25),
+              0 0 25px -4px rgba(244, 63, 94, 0.2);
+}
+
+.glass-nav {
+  background: rgba(15, 8, 12, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(244, 63, 94, 0.15);
+}
+
+/* Rose & Lotus Glows */
+.glow-rose {
+  box-shadow: 0 0 35px -5px rgba(244, 63, 94, 0.35);
+}
+
+.glow-lotus {
+  box-shadow: 0 0 35px -5px rgba(217, 70, 239, 0.3);
+}
+
+.glow-text-rose {
+  text-shadow: 0 0 20px rgba(244, 63, 94, 0.55);
+}
+
+.glow-text-gold {
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.45);
+}
+
+/* Custom Scrollbar in Rose Quartz */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #0d070a;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #9f1239, #f43f5e);
+  border-radius: 9999px;
+  border: 2px solid #0d070a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fb7185;
+}
+
+/* Background Animated Floral Mesh */
+.bg-floral-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(225, 29, 72, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(217, 70, 239, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.08) 0px, transparent 50%);
+}
+
+/* Falling Petals Canvas Container */
+#petals-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* Marriage Counter Glass Block */
+.counter-box {
+  background: linear-gradient(135deg, rgba(46, 16, 28, 0.7), rgba(20, 10, 15, 0.7));
+  border: 1px solid rgba(251, 113, 133, 0.25);
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.06), 0 8px 24px -6px rgba(0, 0, 0, 0.5);
+}
+
+/* Open-When Envelope Styles */
+.envelope-card {
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  perspective: 1000px;
+}
+
+.envelope-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.wax-seal {
+  width: 46px;
+  height: 46px;
+  background: radial-gradient(circle at 35% 35%, #f43f5e, #881337);
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.5), inset 0 2px 3px rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fda4af;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+/* Reader Modal Themes */
+.reader-theme-rose {
+  background: #2a111a !important;
+  color: #fff1f2 !important;
+  border-color: rgba(244, 63, 94, 0.3) !important;
+}
+
+.reader-theme-parchment {
+  background: #fefce8 !important;
+  color: #3f2d1d !important;
+  border-color: #ebdcb9 !important;
+}
+
+.reader-theme-dark {
+  background: #0d070a !important;
+  color: #fce7f3 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.reader-theme-ivory {
+  background: #fffcf8 !important;
+  color: #1f2937 !important;
+  border-color: #f1e4d7 !important;
+}
+
+/* Float Animations */
+@keyframes petal-float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.float-gentle {
+  animation: petal-float-gentle 6s ease-in-out infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+.pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Masonry/Gallery Image Container */
+.gallery-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-img-wrapper img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-img-wrapper:hover img {
+  transform: scale(1.08);
+}
+
+/* Lightbox Modal Animation */
+.modal-backdrop-blur {
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* Admin Dashboard Custom Elements */
+.admin-tab-btn.active {
+  background: linear-gradient(135deg, #e11d48, #be123c);
+  color: #ffffff;
+  border-color: #f43f5e;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.4);
+}
+
+/* Form controls */
+.cms-input {
+  background: rgba(20, 10, 15, 0.8);
+  border: 1px solid rgba(253, 164, 175, 0.2);
+  color: #fff1f2;
+  border-radius: 0.75rem;
+  padding: 0.65rem 1rem;
+  transition: all 0.25s ease;
+}
+
+.cms-input:focus {
+  outline: none;
+  border-color: #f43f5e;
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.2);
+  background: rgba(30, 12, 20, 0.95);
+}
+
+/* Toast Notifications */
+.toast-enter {
+  animation: toast-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-leave {
+  animation: toast-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes toast-in {
+  from {
+    transform: translateY(20px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-out {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-15px) scale(0.92);
+    opacity: 0;
+  }
+}
